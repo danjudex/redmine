@@ -1,0 +1,28 @@
+version: "3.1"
+
+services:
+  redmine:
+    image: redmine:4-alpine
+    restart: always
+    environment:
+      REDMINE_DB_POSTGRES: postgres
+      REDMINE_DB_PASSWORD: postgres
+    networks:
+      - default
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${APP_NAME}-redmine.rule=Host(`${APP_DOMAIN}`)"
+
+  postgres:
+    image: postgres:12-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+    networks:
+      - default
+      - web
+
+networks:
+  web:
+    external: true
