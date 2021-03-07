@@ -1,1 +1,3 @@
+PATH=/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/bin
+
 0 0 * * * cd ~/apps/redmine && make dump > logs/cron.log 2>&1
