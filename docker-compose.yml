@@ -12,10 +12,10 @@ services:
       - web
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.${APP_NAME}-redmine.rule=Host(`${APP_DOMAIN}`)"
-      - "traefik.http.routers.${APP_NAME}-redmine.middlewares=${APP_NAME}-redirectscheme"
       - "traefik.http.middlewares.${APP_NAME}-redirectscheme.redirectscheme.scheme=https"
       - "traefik.http.middlewares.${APP_NAME}-redirectscheme.redirectscheme.permanent=true"
+      - "traefik.http.routers.${APP_NAME}-redmine.rule=Host(`${APP_DOMAIN}`)"
+      - "traefik.http.routers.${APP_NAME}-redmine.middlewares=${APP_NAME}-redirectscheme"
     restart: always
 
   postgres:
