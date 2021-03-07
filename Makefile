@@ -10,4 +10,4 @@ up:
 install: env-init up-d
 
 dump:
-	@docker-compose exec postgres pg_dump -U postgres | gzip > dumps/`date +%Y-%m-%d`.sql.gz
+	@docker-compose exec -T postgres pg_dump -U postgres | gzip > dumps/`date +%Y-%m-%d`.sql.gz
