@@ -15,7 +15,7 @@ services:
       - "traefik.http.routers.${APP_NAME}-redmine.rule=Host(`${APP_DOMAIN}`)"
       - "traefik.http.routers.${APP_NAME}-redmine.middlewares=${APP_NAME}-redirectscheme"
       - "traefik.http.middlewares.${APP_NAME}-redirectscheme.redirectscheme.scheme=https"
-      - "traefik.http.middlewares.${APP_NAME}-redirectscheme.permanent=true"
+      - "traefik.http.middlewares.${APP_NAME}-redirectscheme.redirectscheme.permanent=true"
     restart: always
 
   postgres:
